@@ -11,8 +11,8 @@
 - `Core/`、`Drivers/`、`cmake/`：CubeMX/HAL 工程文件。
 - `firmware/02_timer_feed.elf`：第二题已经单独构建和下载验证的版本。
 - `firmware/03_watchdog_reset.elf`：第三题已经单独构建和下载验证的版本。
-- [`作业说明_草稿.md`](作业说明_草稿.md)：计算过程、结果说明和附录图片。Ozone 指定截图仍待补。
-- `作业说明_草稿.pdf`：从说明草稿导出的阅读版本，可选；作业的主要交付是公开 GitHub 仓库链接。
+- [`作业说明.md`](作业说明.md)：计算过程、结果说明和附录图片。
+- [`作业说明.pdf`](作业说明.pdf)：说明文档的阅读版本。
 
 ## 构建
 
@@ -33,7 +33,7 @@ cmake --build --preset Debug
 ## 已验证的运行现象
 
 - PC13 低电平，板载 LED 点亮。
-- 喂狗版：`tick` 在 8 秒观测期间单调增长，约每秒增加 1000。
-- 不喂狗版：`tick` 反复从高值下降后重新增长，符合看门狗周期复位。
+- 喂狗版：Ozone Timeline 中 `tick` 持续增长，斜率约为每秒 1000；[截图](appendix/02_timer_ozone.png)。
+- 不喂狗版：Ozone Timeline 中 `tick` 约每 2 秒从接近 2000 回到低值，再重新增长；[截图](appendix/03_watchdog_ozone.png)。
 
-附录 2、3 目前是 pyOCD 读取真实硬件 RAM 的截图，尚未取得作业指定的 Ozone 截图。不要把 pyOCD 截图写成 Ozone 截图。
+另保留 pyOCD 读取实际硬件 RAM 的[定时器](appendix/02_timer_pyocd.png)和[看门狗](appendix/03_watchdog_pyocd.png)截图作为补充记录。
