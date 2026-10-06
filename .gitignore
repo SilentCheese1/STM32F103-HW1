@@ -1,0 +1,13 @@
+# Generated build files
+build/
+
+# Local editor and debugger state
+.DS_Store
+.vscode/
+*.jdebug.user
+*.jdebug
+generate.script
+
+# Python cache
+__pycache__/
+*.pyc

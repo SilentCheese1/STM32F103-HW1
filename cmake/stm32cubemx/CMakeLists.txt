@@ -1,0 +1,6 @@
+add_library(stm32cubemx INTERFACE)
+target_compile_definitions(stm32cubemx INTERFACE USE_HAL_DRIVER STM32F103xB)
+target_compile_definitions(drivers PUBLIC USE_HAL_DRIVER STM32F103xB)
+target_compile_definitions(${PROJECT_NAME} PRIVATE USE_HAL_DRIVER STM32F103xB)
+target_sources(drivers PRIVATE "${CMAKE_SOURCE_DIR}/Core/Src/system_stm32f1xx.c")
+set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".elf")
